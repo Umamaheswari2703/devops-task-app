@@ -20,7 +20,7 @@ spec:
       containers:
 
         - name: devops-task-app
-          image: Umamaheswari2703/devops-task-app:latest
+          image: umamaheswaris/devops-task-app:latest
 
           ports:
             - containerPort: 8080
