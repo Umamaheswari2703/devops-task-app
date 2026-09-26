@@ -98,32 +98,16 @@ pipeline {
         }
 
 
-        stage('Deploy to Kubernetes') {
+      stage('Deploy to Kubernetes') {
+    steps {
+        echo 'Deploying application to Kubernetes...'
 
-            steps {
-
-                echo 'Deploying application to Kubernetes...'
-
-                withCredentials([
-                    file(
-                        credentialsId: 'kubeconfig-credentials',
-                        variable: 'KUBECONFIG'
-                    )
-                ]) {
-
-                    sh '''
-                        kubectl apply -f k8s/deployment.yaml
-                        kubectl apply -f k8s/service.yaml
-
-                        kubectl rollout status deployment/devops-task-app
-
-                        kubectl get pods
-                        kubectl get services
-                    '''
-                }
-            }
-        }
+        sh '''
+            kubectl apply -f k8s/deployment.yaml
+            kubectl apply -f k8s/service.yaml
+        '''
     }
+}
 
 
     post {
