@@ -6,7 +6,7 @@ pipeline {
 
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')
 
-        DOCKERHUB_REPO = 'umamaheswaris/devops-task-app'
+        DOCKERHUB_REPO = 'umamaheswaris2705/devops-task-app'
 
         DOCKER_IMAGE_TAG = 'latest'
     }
